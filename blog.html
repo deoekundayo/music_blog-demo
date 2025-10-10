@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mic Drop Daily</title>
+  <link href="blog.css" rel="stylesheet">
+  <style>
+    /* General Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    }
+
+    body {
+      background-color: #0e0e0e;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Header */
+    header {
+      background-color: #0e0e0e;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 38px;
+      
+    }
+
+    nav a {
+      margin: 0 10px;
+      font-weight: 500;
+      transition: color 0.3s;
+      color: #ec0505;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #1a1a1a 0%, #0e0e0e 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><text x="10" y="50" font-size="40" fill="%23ec0505" opacity="0.05">♪</text></svg>');
+      opacity: 0.1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h2 {
+      font-size: 56px;
+      margin-bottom: 20px;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .hero h2 span {
+      color: #ec0505;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      color: #bbb;
+      line-height: 1.6;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      padding: 15px 40px;
+      background: #ec0505;
+      color: #fff;
+      font-weight: 500;
+      border-radius: 5px;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero-btn:hover {
+      background: #b80404;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(236, 5, 5, 0.4);
+    }
+
+    /* Blog Container */
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 40px;
+    }
+
+    /* Main Blog Area */
+    .main {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .post {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .post img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .post-content {
+      padding: 20px;
+    }
+
+    .post-content h3 {
+      margin-bottom: 10px;
+      color: #0e0e0e;
+    }
+
+    .post-content p {
+      color: #676262;
+    }
+
+    .post-content a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #ec0505;
+      font-weight: 500;
+      transition: transform 0.3s;
+    }
+
+    .post-content a:hover {
+      transform: translateY(-3px);
+    }
+
+    .read-more-link {
+      display: inline-block;
+      color: #ec0505;
+      font-weight: 500;
+      transition: transform 0.3s;
+    }
+
+    .read-more-link:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .widget {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .widget h4 {
+      margin-bottom: 15px;
+      color: #0e0e0e;
+    }
+
+    .widget ul {
+      list-style: none;
+    }
+
+    .widget ul li {
+      margin-bottom: 10px;
+    }
+
+    .widget ul li a {
+      color: #676262;
+      transition: color 0.3s;
+    }
+
+    .widget ul li a:hover {
+      color: #ec0505;
+    }
+
+    .subscribe-btn {
+      padding: 10px;
+      width: 100%;
+      background: #ec0505;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .subscribe-btn:hover {
+      background: #b80404;
+      transform: translateY(-3px);
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      background: #ec0505;
+      color: #fff;
+      padding: 15px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.3s;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(236, 5, 5, 0.3);
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: #b80404;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(236, 5, 5, 0.4);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0e0e0e;
+      color: #fff;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .footer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-section h3 {
+      color: #ec0505;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .footer-section p,
+    .footer-section ul li,
+    .footer-section a {
+      color: #fff;
+      line-height: 1.8;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .footer-section ul li:hover {
+      color: #ec0505;
+    }
+
+    .footer-section.contact p {
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .footer-section.contact p:hover {
+      color: #ec0505;
+    }
+
+    .footer-section a:hover {
+      color: #ec0505;
+      transition: color 0.3s;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      margin-right: 5px;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Mic Drop Daily</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Archives</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Where Hip-Hop <span>Lives</span></h2>
+      <p>Daily drops on the culture, the legends, and the next generation. From the streets to the stage, we bring you the stories behind the beats and the bars that define hip-hop.</p>
+      <a href="#first-post" class="hero-btn" id="exploreBtn">Explore Latest Posts</a>
+    </div>
+  </section>
+
+  <!-- Main Blog Section -->
+  <div class="container">
+
+    <!-- Main Blog Posts -->
+    <div class="main">
+      <div class="post" id="first-post">
+        <img src="evo-of-hiphop.png" alt="hip-hop evolution">
+        <div class="post-content">
+          <h3>The Evolution of Hip-Hop: From the Streets to the Global Stage</h3>
+          <p>Hip-hop is more than just a genre — it’s a cultural movement that has shaped art, fashion, language, and politics for over five decades. What began as an underground expression in the Bronx has grown into a global force influencing every corner of popular culture. Let’s take a journey through the decades to see how hip-hop has evolved and transformed along the way.</p>
+          <a href="#">Read More →</a>
+        </div>
+      </div>
+
+      <div class="post" id="second-post">
+        <img src="https://ambrosiaforheads.com/wp-content/uploads/2022/07/Top-5-MCs.png" alt="Top Rappers of All Time: The Legends Who Shaped Hip-Hop">
+        <div class="post-content">
+          <h3>Top Rappers of All Time: The Legends Who Shaped Hip-Hop</h3>
+          <p>Over the decades, countless artists have left their mark on the game — but a few stand above the rest as true pioneers, lyricists, and innovators.
+
+            Here’s a look at some of the greatest rappers of all time, and why their influence continues to shape hip-hop today.</p>
+          <a href="#">Read More →</a>
+        </div>
+      </div>
+
+      <div class="post" id="third-post">
+        <img src="https://djbooth.net/wp-content/uploads/2024/04/greatest-producers-of-all-time-roundtablejpg.jpg" alt="The Top Hip-Hop Producers of All Time">
+        <div class="post-content">
+          <h3>The Top Hip-Hop Producers of All Time</h3>
+          <p>When you hear a track that instantly makes your head nod, it’s not always the rapper who made the magic happen — it’s the producer behind the boards. The unsung architects of sound who define eras, shift the culture, and set the stage for the greats to shine.
+
+            Here’s our list of the Top Hip-Hop Producers of All Time, the legends who turned beats into history.</p>
+          <a href="#">Read More →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="widget">
+        <h4>About Us</h4>
+        <p style="color: #676262;">Welcome to Mic Drop Daily — your daily dose of hip-hop culture, raw talent, and real stories.
+
+          We're here to celebrate the heartbeat of music: the bars, the beats, and the brilliance behind every track. From underground cyphers to arena tours, we cover the artists shaping today's sound and tomorrow's legacy.</p>
+          <a href="#" class="read-more-link">Read More →</a>
+      </div>
+
+      
+
+      <div class="widget">
+        <h4>Recent Posts</h4>
+        <ul>
+          <li><a href="#first-post" class="recent-post-link">The Evolution of Hip-Hop: From the Streets to the Global Stage</a></li>
+          <li><a href="#second-post" class="recent-post-link">Top Rappers of All Time: The Legends Who Shaped Hip-Hop</a></li>
+          <li><a href="#third-post" class="recent-post-link">The Top Hip-Hop Producers of All Time</a></li>
+        </ul>
+      </div>
+
+      <div class="widget">
+        <h4>Subscribe</h4>
+        <p style="color: #676262;">Get the latest posts directly to your inbox.</p>
+        <form>
+          <input type="email" placeholder="Your Email" style="padding:10px;width:100%;margin-bottom:10px;">
+          <button type="submit" class="subscribe-btn">Subscribe</button>
+        </form>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-section about">
+      <h3>About Us</h3>
+      <p>We give you daily drops on the culture, the legends, and the next generation.</p>
+    </div>
+
+    <div class="footer-section links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Archives</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+
+    <div class="footer-section contact">
+      <h3>Contact Us</h3>
+      <p>Email: micdropdaily@email.com</p>
+      <p>Phone: 704 456 7890</p>
+      <p>Address: 2846 Poplar View Dr, Charlotte, NC 28210</p>
+    </div>
+
+    <div class="footer-section social">
+      <h3>Follow Us</h3>
+      <p>Stay connected on social media.</p>
+      <div class="social-icons">
+        <a href="#">Facebook</a> |
+        <a href="#">Instagram</a> |
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop">Back to Top ↑</button>
+
+  <script>
+    // Get the button
+    const backToTopBtn = document.getElementById('backToTop');
+
+    // Show button when user scrolls down 300px from the top
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    // Scroll to top when button is clicked
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Smooth scroll to first post when Explore button is clicked
+    const exploreBtn = document.getElementById('exploreBtn');
+    exploreBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const firstPost = document.getElementById('first-post');
+      firstPost.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+
+    // Smooth scroll for Recent Posts links
+    const recentPostLinks = document.querySelectorAll('.recent-post-link');
+    recentPostLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetPost = document.getElementById(targetId);
+        if (targetPost) {
+          targetPost.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
