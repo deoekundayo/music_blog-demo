@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archives - Mic Drop Daily</title>
+  <link href="blog.css" rel="stylesheet">
+  <style>
+    /* General Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    }
+
+    body {
+      background-color: #0e0e0e;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Header */
+    header {
+      background-color: #0e0e0e;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 38px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      font-weight: 500;
+      transition: color 0.3s;
+      color: #ec0505;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #1a1a1a 0%, #0e0e0e 100%);
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><text x="10" y="50" font-size="40" fill="%23ec0505" opacity="0.05">♪</text></svg>');
+      opacity: 0.1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .hero h2 span {
+      color: #ec0505;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #bbb;
+      line-height: 1.6;
+    }
+
+    /* Archive Container */
+    .archive-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: #ec0505;
+      font-weight: 500;
+      margin-bottom: 30px;
+      transition: transform 0.3s;
+    }
+
+    .back-link:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Filter Section */
+    .filter-section {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .filter-section h3 {
+      color: #676262;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .filter-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 8px 16px;
+      background-color: #f8f8f8;
+      border: 2px solid #e0e0e0;
+      border-radius: 20px;
+      color: #0e0e0e;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background-color: #ec0505;
+      border-color: #ec0505;
+      color: #fff;
+    }
+
+    /* Articles Grid */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .article-card {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .article-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .article-card-content {
+      padding: 20px;
+    }
+
+    .article-card h3 {
+      color: #ec0505;
+      margin-bottom: 10px;
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    .article-card h3 a {
+      color: #ec0505;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .article-card h3 a:hover {
+      color: #b80404;
+      text-decoration: underline;
+    }
+
+    .article-card p {
+      color: #0e0e0e;
+      margin-bottom: 15px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .article-meta {
+      color: #676262;
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+
+    .read-more-link {
+      display: inline-block;
+      color: #ec0505;
+      font-weight: 500;
+      font-size: 14px;
+      transition: transform 0.3s;
+    }
+
+    .read-more-link:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0e0e0e;
+      color: #fff;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .footer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-section h3 {
+      color: #ec0505;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .footer-section p,
+    .footer-section ul li,
+    .footer-section a {
+      color: #fff;
+      line-height: 1.8;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .footer-section ul li:hover {
+      color: #ec0505;
+    }
+
+    .footer-section.contact p {
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .footer-section.contact p:hover {
+      color: #ec0505;
+    }
+
+    .footer-section a:hover {
+      color: #ec0505;
+      transition: color 0.3s;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      margin-right: 5px;
+    }
+
+    /* Responsive */
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      background: #ec0505;
+      color: #fff;
+      padding: 15px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.3s;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(236, 5, 5, 0.3);
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: #b80404;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(236, 5, 5, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 36px;
+      }
+      
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .filter-buttons {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Mic Drop Daily</h1>
+    <nav>
+      <a href="blog.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="archive.html">Archives</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Article <span>Archives</span></h2>
+      <p>Explore our complete collection of hip-hop culture articles, from the legends who built the foundation to the new voices shaping tomorrow's sound.</p>
+    </div>
+  </section>
+
+  <!-- Archive Container -->
+  <div class="archive-container">
+    <a href="blog.html" class="back-link">← Back to Blog</a>
+    
+    <!-- Filter Section -->
+    <div class="filter-section">
+      <h3>Filter Articles</h3>
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-category="all">All Articles</button>
+        <button class="filter-btn" data-category="history">History</button>
+        <button class="filter-btn" data-category="artists">Artists</button>
+        <button class="filter-btn" data-category="culture">Culture</button>
+        <button class="filter-btn" data-category="music">Music</button>
+        <button class="filter-btn" data-category="fashion">Fashion</button>
+        <button class="filter-btn" data-category="business">Business</button>
+      </div>
+    </div>
+
+    <!-- Articles Grid -->
+    <div class="articles-grid">
+      
+      <!-- Article 1 -->
+      <div class="article-card" data-category="music culture">
+        <img src="https://cdn-image.bonedo.de/wp-media-folder-bonedo//var/www/html/web/app/uploads/2016/06/Workshop_Trap_Beats_produzieren.jpg" alt="Trap Music Scene">
+        <div class="article-card-content">
+          <h3><a href="article-1.html">The Rise of Trap Music: How Atlanta Changed Hip-Hop Forever</a></h3>
+          <div class="article-meta">Published on December 10, 2024</div>
+          <p>Explore how trap music emerged from Atlanta's underground scene to revolutionize hip-hop culture and become the defining sound of a generation.</p>
+          <a href="article-1.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Article 2 -->
+      <div class="article-card" data-category="artists">
+        <img src="https://hiphopdx.com/wp-content/uploads/2025/04/Kendrick-Lamars-Grand-National-Tour-Features-Surprise-Appearance-From-Rap-Superstar-.jpg?w=420" alt="Kendrick Lamar performing">
+        <div class="article-card-content">
+          <h3><a href="article-2.html">Kendrick Lamar: The Poet Laureate of Hip-Hop</a></h3>
+          <div class="article-meta">Published on December 9, 2024</div>
+          <p>Dive deep into the artistry and cultural impact of Kendrick Lamar, one of hip-hop's most critically acclaimed and socially conscious artists.</p>
+          <a href="article-2.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Article 3 -->
+      <div class="article-card" data-category="history">
+        <img src="https://live-production.wcms.abc-cdn.net.au/acd07e527c0c3bfbf6e2f4925551cc1f?impolicy=wcms_crop_resize&cropH=506&cropW=900&xPos=0&yPos=0&width=862&height=485" alt="90s Hip-Hop Scene">
+        <div class="article-card-content">
+          <h3><a href="article-3.html">The Golden Age of Hip-Hop: 1990s Renaissance</a></h3>
+          <div class="article-meta">Published on December 8, 2024</div>
+          <p>Revisit the most creative and influential decade in hip-hop history, when innovation in lyricism and production reached unprecedented heights.</p>
+          <a href="article-3.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Article 4 -->
+      <div class="article-card" data-category="culture artists">
+        <img src="https://images.squarespace-cdn.com/content/v1/5aef35003e2d0905837f7d46/1565285978740-TKW3G2PQ0ZA601PDT608/tumblr_om79rdSUhf1qipgcx_og_500.jpg" alt="Female MCs in Hip-Hop">
+        <div class="article-card-content">
+          <h3><a href="article-4.html">Female MCs Breaking Barriers in Hip-Hop</a></h3>
+          <div class="article-meta">Published on December 7, 2024</div>
+          <p>Celebrate the women who have shaped hip-hop culture and continue to break barriers in a traditionally male-dominated genre.</p>
+          <a href="article-4.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Article 5 -->
+      <div class="article-card" data-category="fashion culture">
+        <img src="https://druchristine.wordpress.com/wp-content/uploads/2023/08/gold-elegant-photo-collage-instagram-story-facebook-cover.png" alt="Hip-Hop Fashion">
+        <div class="article-card-content">
+          <h3><a href="article-5.html">Hip-Hop Fashion: From Street Style to High Fashion</a></h3>
+          <div class="article-meta">Published on December 6, 2024</div>
+          <p>Trace the evolution of hip-hop fashion from underground street style to a dominant force in global fashion and luxury brands.</p>
+          <a href="article-5.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Article 6 -->
+      <div class="article-card" data-category="music history">
+        <img src="https://sampleface.co.uk/wp-content/uploads/2013/05/is-hip-hop-sampling-lazy-or-creative.jpeg" alt="DJ mixing records and sampling">
+        <div class="article-card-content">
+          <h3><a href="article-6.html">The Art of Sampling: How Hip-Hop Created New Music from Old</a></h3>
+          <div class="article-meta">Published on December 5, 2024</div>
+          <p>Explore how hip-hop producers revolutionized music by transforming existing songs into entirely new creative expressions through sampling.</p>
+          <a href="article-6.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Article 7 -->
+      <div class="article-card" data-category="culture history">
+        <img src="https://i0.wp.com/roseandblog.com/wp-content/uploads/2017/03/kool-herc-1979-party.jpg?fit=564%2C404&ssl=1" alt="Bronx street scene and hip-hop culture">
+        <div class="article-card-content">
+          <h3><a href="article-7.html">The Birth of Hip-Hop: From the Bronx to the World</a></h3>
+          <div class="article-meta">Published on December 4, 2024</div>
+          <p>Journey back to the South Bronx in the 1970s to discover how a cultural movement that started at block parties changed the world forever.</p>
+          <a href="article-7.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Article 8 -->
+      <div class="article-card" data-category="business music">
+        <img src="https://www.revolt.tv/article/media_1ffc4eeb8a32753978e75a449a7e904e3152dce31.jpeg?width=800&format=jpeg&optimize=high" alt="Hip-hop business empire and entrepreneurship">
+        <div class="article-card-content">
+          <h3><a href="article-8.html">Hip-Hop Entrepreneurship: Building Empires Beyond Music</a></h3>
+          <div class="article-meta">Published on December 3, 2024</div>
+          <p>Discover how hip-hop artists transformed from entertainers to entrepreneurs, building billion-dollar businesses across multiple industries.</p>
+          <a href="article-8.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Article 9 -->
+      <div class="article-card" data-category="artists music">
+        <img src="https://cdn.britannica.com/65/136165-050-6394F09F/Jay-Z.jpg" alt="Jay-Z performing on stage">
+        <div class="article-card-content">
+          <h3><a href="article-9.html">Jay-Z: From Brooklyn to Billionaire</a></h3>
+          <div class="article-meta">Published on December 2, 2024</div>
+          <p>Follow the incredible journey of Jay-Z from Marcy Projects to becoming hip-hop's first billionaire and one of its most successful entrepreneurs.</p>
+          <a href="article-9.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Article 10 -->
+      <div class="article-card" data-category="culture music">
+        <img src="https://www.dictionary.com/e/wp-content/uploads/2018/03/rap_slang4.jpg" alt="Hip-hop language and rap culture">
+        <div class="article-card-content">
+          <h3><a href="article-10.html">Hip-Hop Language: How Rap Changed the Way We Speak</a></h3>
+          <div class="article-meta">Published on December 1, 2024</div>
+          <p>Examine how hip-hop culture has influenced language, slang, and communication patterns across generations and cultures worldwide.</p>
+          <a href="article-10.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Article 11 -->
+      <div class="article-card" data-category="history culture">
+        <img src="https://wp.dailybruin.com/images/2020/11/image-2.png" alt="Hip-hop and political activism">
+        <div class="article-card-content">
+          <h3><a href="article-11.html">Hip-Hop and Politics: The Soundtrack of Social Change</a></h3>
+          <div class="article-meta">Published on November 30, 2024</div>
+          <p>Explore how hip-hop has served as a voice for political activism and social justice throughout its history.</p>
+          <a href="article-11.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Article 12 -->
+      <div class="article-card" data-category="music culture">
+        <img src="https://pyxis.nymag.com/v1/imgs/060/0f7/0dce18089c1acb1aa7243cb95eeac3a017-15songsFINAL.rhorizontal.w1100.jpg" alt="Chicago drill music scene">
+        <div class="article-card-content">
+          <h3><a href="article-12.html">Drill Music: The New Sound of the Streets</a></h3>
+          <div class="article-meta">Published on November 29, 2024</div>
+          <p>Investigate the rise of drill music and its impact on hip-hop culture, from Chicago's South Side to global recognition.</p>
+          <a href="article-12.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Article 13 -->
+      <div class="article-card" data-category="artists culture">
+        <img src="https://s3.amazonaws.com/thumbnails.thecrimson.com/photos/2023/05/04/201704_1363713.png.2000x1240_q95_crop-smart_upscale.png" alt="Hip-hop producers at work">
+        <div class="article-card-content">
+          <h3><a href="article-13.html">The Unsung Heroes: Hip-Hop Producers Who Shaped the Sound</a></h3>
+          <div class="article-meta">Published on November 28, 2024</div>
+          <p>Celebrate the producers behind the boards who created the iconic beats that defined eras and influenced generations of artists.</p>
+          <a href="article-13.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Article 14 -->
+      <div class="article-card" data-category="business fashion">
+        <img src="https://slamonline.com/wp-content/uploads/2023/09/SLAMKICKS_HipHop50_1920x1080_final.jpg" alt="Hip-hop sneaker culture and street style">
+        <div class="article-card-content">
+          <h3><a href="article-14.html">Sneaker Culture: How Hip-Hop Made Shoes a Lifestyle</a></h3>
+          <div class="article-meta">Published on November 27, 2024</div>
+          <p>Dive into the world of sneaker culture and how hip-hop transformed athletic shoes into symbols of status, style, and cultural identity.</p>
+          <a href="article-14.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Article 15 -->
+      <div class="article-card" data-category="culture music">
+        <img src="https://ca-times.brightspotcdn.com/dims4/default/4d2d00f/2147483647/strip/true/crop/2048x1075+0+38/resize/1200x630!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F25%2F80%2Fc78e39d618f83db3c8dc95a5f2dd%2Fla-1513296182-9qnsdtsa26-snap-image" alt="Hip-hop festival and concert crowd">
+        <div class="article-card-content">
+          <h3><a href="article-15.html">Hip-Hop Festivals: Bringing the Culture to the Masses</a></h3>
+          <div class="article-meta">Published on November 26, 2024</div>
+          <p>Explore how hip-hop festivals have grown from local gatherings to massive international events that celebrate the culture.</p>
+          <a href="article-15.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Article 16 -->
+      <div class="article-card" data-category="history artists">
+        <img src="https://cdn.britannica.com/02/162002-050-02512608/Tupac-Shakur-1993.jpg" alt="Tupac Shakur portrait and legacy">
+        <div class="article-card-content">
+          <h3><a href="article-16.html">Tupac Shakur: The Legacy of a Hip-Hop Legend</a></h3>
+          <div class="article-meta">Published on November 25, 2024</div>
+          <p>Remember the life, music, and enduring influence of Tupac Shakur, one of hip-hop's most iconic and controversial figures.</p>
+          <a href="article-16.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Article 17 -->
+      <div class="article-card" data-category="music culture">
+        <img src="https://flypaper.soundfly.com/wp-content/uploads/2020/06/hip-hop-facebook.jpg" alt="Hip-hop music technology and production">
+        <div class="article-card-content">
+          <h3><a href="article-17.html">Technology and Hip-Hop: How Innovation Shaped the Sound</a></h3>
+          <div class="article-meta">Published on November 24, 2024</div>
+          <p>Examine how technological advances have influenced hip-hop production and distribution throughout the genre's evolution.</p>
+          <a href="article-17.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Article 18 -->
+      <div class="article-card" data-category="culture history">
+        <img src="https://everwallpaper.com/cdn/shop/products/hiphop-graffiti-wallpaper-mural.jpg?v=1649923820" alt="Hip-hop graffiti art and street culture">
+        <div class="article-card-content">
+          <h3><a href="article-18.html">Graffiti Art: The Visual Voice of Hip-Hop Culture</a></h3>
+          <div class="article-meta">Published on November 23, 2024</div>
+          <p>Discover how graffiti art became one of hip-hop's four elements and continues to influence visual culture worldwide.</p>
+          <a href="article-18.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Article 19 -->
+      <div class="article-card" data-category="business music">
+        <img src="https://images.squarespace-cdn.com/content/v1/588b7aa846c3c45be3e8c430/1549998081809-QG5XAW9X6VCUE0E3KIA7/spotify-200-million.jpg?format=2500w" alt="Digital streaming and hip-hop music business">
+        <div class="article-card-content">
+          <h3><a href="article-19.html">The Streaming Revolution: How Digital Changed Hip-Hop</a></h3>
+          <div class="article-meta">Published on November 22, 2024</div>
+          <p>Analyze how streaming platforms have transformed hip-hop music consumption and created new opportunities for artists.</p>
+          <a href="article-19.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Article 20 -->
+      <div class="article-card" data-category="culture artists">
+        <img src="https://www.rollingstone.com/wp-content/uploads/2023/08/online-illo-static.jpg" alt="Modern hip-hop artist and future trends">
+        <div class="article-card-content">
+          <h3><a href="article-20.html">The Future of Hip-Hop: Where the Culture is Heading</a></h3>
+          <div class="article-meta">Published on November 21, 2024</div>
+          <p>Look ahead to the future of hip-hop culture and explore emerging trends, artists, and innovations shaping the next generation.</p>
+          <a href="article-20.html" class="read-more-link">Read More →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-section about">
+      <h3>About Us</h3>
+      <p>We give you daily drops on the culture, the legends, and the next generation.</p>
+    </div>
+
+    <div class="footer-section links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="blog.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="archive.html">Archives</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section contact">
+      <h3>Contact Us</h3>
+      <p>Email: micdropdaily@email.com</p>
+      <p>Phone: 704 456 7890</p>
+      <p>Address: 2846 Poplar View Dr, Charlotte, NC 28210</p>
+    </div>
+
+    <div class="footer-section social">
+      <h3>Follow Us</h3>
+      <p>Stay connected on social media.</p>
+      <div class="social-icons">
+        <a href="#">Facebook</a> |
+        <a href="#">Instagram</a> |
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop">Back to Top ↑</button>
+
+  <script>
+    // Get the button
+    const backToTopBtn = document.getElementById('backToTop');
+
+    // Show button when user scrolls down 300px from the top
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    // Scroll to top when button is clicked
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const articleCards = document.querySelectorAll('.article-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        button.classList.add('active');
+
+        const category = button.getAttribute('data-category');
+
+        articleCards.forEach(card => {
+          if (category === 'all' || card.getAttribute('data-category').includes(category)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

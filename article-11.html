@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hip-Hop and Politics: The Soundtrack of Social Change - Mic Drop Daily</title>
+  <link href="blog.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    }
+
+    body {
+      background-color: #0e0e0e;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    header {
+      background-color: #0e0e0e;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 38px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      font-weight: 500;
+      transition: color 0.3s;
+      color: #ec0505;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .article-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: #ec0505;
+      font-weight: 500;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+    }
+
+    .back-link:hover {
+      transform: translateY(-3px);
+    }
+
+    .article {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .article img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .article-content {
+      padding: 40px;
+    }
+
+    .article-content h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #ec0505;
+      line-height: 1.2;
+    }
+
+    .article-meta {
+      color: #676262;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .article-content p {
+      color: #0e0e0e;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .article-content h2 {
+      color: #ec0505;
+      margin: 30px 0 15px 0;
+      font-size: 24px;
+    }
+
+    .article-content h3 {
+      color: #676262;
+      margin: 25px 0 10px 0;
+      font-size: 20px;
+    }
+
+    .highlight {
+      background-color: #ec0505;
+      color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      margin: 20px 0;
+      font-style: italic;
+    }
+
+    footer {
+      background-color: #0e0e0e;
+      color: #fff;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .footer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-section h3 {
+      color: #ec0505;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .footer-section p,
+    .footer-section ul li,
+    .footer-section a {
+      color: #fff;
+      line-height: 1.8;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .footer-section ul li:hover {
+      color: #ec0505;
+    }
+
+    .footer-section.contact p {
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .footer-section.contact p:hover {
+      color: #ec0505;
+    }
+
+    .footer-section a:hover {
+      color: #ec0505;
+      transition: color 0.3s;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      margin-right: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .article-content {
+        padding: 20px;
+      }
+      
+      .article-content h1 {
+        font-size: 28px;
+      }
+      
+      .article img {
+        height: 300px;
+      }
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      background: #ec0505;
+      color: #fff;
+      padding: 15px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.3s;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(236, 5, 5, 0.3);
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: #b80404;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(236, 5, 5, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mic Drop Daily</h1>
+    <nav>
+      <a href="blog.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="archive.html">Archives</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="article-container">
+    <a href="archive.html" class="back-link">← Back to Archives</a>
+    
+    <article class="article">
+      <img src="https://wp.dailybruin.com/images/2020/11/image-2.png" alt="Hip-hop and political activism">
+      <p style="font-size: 12px; color: #666; margin-top: 10px; font-style: italic;">Image credit: The Guardian - Hip-hop and political activism</p>
+      <div class="article-content">
+        <h1>Hip-Hop and Politics: The Soundtrack of Social Change</h1>
+        <div class="article-meta">Published on November 30, 2024 | By Mic Drop Daily</div>
+        
+        <p>Hip-hop has always been more than just music—it's been a powerful voice for social justice and political change. From its origins in the South Bronx to its global reach today, hip-hop has served as the soundtrack for movements fighting inequality, police brutality, and systemic oppression.</p>
+
+        <h2>The Roots of Resistance</h2>
+        <p>From its earliest days, hip-hop was born out of resistance. Artists like Grandmaster Flash and the Furious Five's "The Message" painted vivid pictures of urban decay and social neglect, giving voice to communities that were often ignored by mainstream media and politics.</p>
+
+        <div class="highlight">
+          "Hip-hop is the CNN of the ghetto. We tell the stories that need to be told." - Chuck D
+        </div>
+
+        <h2>Conscious Rap Movement</h2>
+        <p>The 1980s and 1990s saw the rise of conscious rap, with artists like Public Enemy, KRS-One, and A Tribe Called Quest using their platform to address political issues. These artists tackled topics like racism, poverty, and government corruption, inspiring listeners to become more politically aware.</p>
+
+        <h2>Modern Activism</h2>
+        <p>Today's hip-hop artists continue to use their platform for political activism. Kendrick Lamar's "Alright" became an anthem for the Black Lives Matter movement, while artists like J. Cole and Killer Mike have been vocal advocates for social justice and political engagement.</p>
+
+        <h2>Voter Engagement</h2>
+        <p>Hip-hop artists have played crucial roles in voter registration and political engagement. From Rock the Vote campaigns to artists encouraging their fans to vote, hip-hop culture has helped mobilize young voters and increase political participation in communities of color.</p>
+
+        <h2>Policy and Legislation</h2>
+        <p>Hip-hop artists have influenced policy discussions on issues like criminal justice reform, education, and economic inequality. Their advocacy has helped bring attention to important issues and influenced public opinion on key political topics.</p>
+
+        <h2>Global Political Impact</h2>
+        <p>Hip-hop's political influence extends globally, with artists around the world using the genre to address local political issues and fight for social justice in their communities. This demonstrates hip-hop's universal appeal as a tool for political expression.</p>
+
+        <p>Hip-hop's role in politics represents the genre's evolution from entertainment to a powerful force for social change, proving that music can be both art and activism.</p>
+      </div>
+    </article>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-section about">
+      <h3>About Us</h3>
+      <p>We give you daily drops on the culture, the legends, and the next generation.</p>
+    </div>
+
+    <div class="footer-section links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="blog.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="archive.html">Archives</a></li>
+        <li>Contact</li>
+      </ul>
+    </div>
+
+    <div class="footer-section contact">
+      <h3>Contact Us</h3>
+      <p>Email: micdropdaily@email.com</p>
+      <p>Phone: 704 456 7890</p>
+      <p>Address: 2846 Poplar View Dr, Charlotte, NC 28210</p>
+    </div>
+
+    <div class="footer-section social">
+      <h3>Follow Us</h3>
+      <p>Stay connected on social media.</p>
+      <div class="social-icons">
+        <a href="#">Facebook</a> |
+        <a href="#">Instagram</a> |
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop">Back to Top ↑</button>
+
+  <script>
+    // Get the button
+    const backToTopBtn = document.getElementById('backToTop');
+
+    // Show button when user scrolls down 300px from the top
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    // Scroll to top when button is clicked
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Mic Drop Daily</title>
+  <link href="blog.css" rel="stylesheet">
+  <style>
+    /* General Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    }
+
+    body {
+      background-color: #0e0e0e;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Header */
+    header {
+      background-color: #0e0e0e;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 38px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      font-weight: 500;
+      transition: color 0.3s;
+      color: #ec0505;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    /* About Container */
+    .about-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: #ec0505;
+      font-weight: 500;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+    }
+
+    .back-link:hover {
+      transform: translateY(-3px);
+    }
+
+    /* About Content */
+    .about-content {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 40px;
+    }
+
+    .about-content h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #ec0505;
+      line-height: 1.2;
+    }
+
+    .about-meta {
+      color: #676262;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .about-content p {
+      color: #0e0e0e;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .about-content h2 {
+      color: #ec0505;
+      margin: 30px 0 15px 0;
+      font-size: 24px;
+    }
+
+    .about-content h3 {
+      color: #676262;
+      margin: 25px 0 10px 0;
+      font-size: 20px;
+    }
+
+    .highlight {
+      background-color: #ec0505;
+      color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      margin: 20px 0;
+      font-style: italic;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin: 30px 0;
+    }
+
+    .team-member {
+      background-color: #f8f8f8;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #ec0505;
+    }
+
+    .team-member h4 {
+      color: #ec0505;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .values-list {
+      background-color: #f8f8f8;
+      padding: 20px;
+      border-radius: 5px;
+      margin: 20px 0;
+      border-left: 4px solid #ec0505;
+    }
+
+    .values-list ul {
+      margin-left: 20px;
+    }
+
+    .values-list li {
+      margin-bottom: 10px;
+      color: #0e0e0e;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0e0e0e;
+      color: #fff;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .footer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-section h3 {
+      color: #ec0505;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .footer-section p,
+    .footer-section ul li,
+    .footer-section a {
+      color: #fff;
+      line-height: 1.8;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .footer-section ul li:hover {
+      color: #ec0505;
+    }
+
+    .footer-section.contact p {
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .footer-section.contact p:hover {
+      color: #ec0505;
+    }
+
+    .footer-section a:hover {
+      color: #ec0505;
+      transition: color 0.3s;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      margin-right: 5px;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      background: #ec0505;
+      color: #fff;
+      padding: 15px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.3s;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(236, 5, 5, 0.3);
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: #b80404;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(236, 5, 5, 0.4);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about-content {
+        padding: 20px;
+      }
+      
+      .about-content h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Mic Drop Daily</h1>
+    <nav>
+      <a href="blog.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="archive.html">Archives</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- About Container -->
+  <div class="about-container">
+    <a href="blog.html" class="back-link">← Back to Blog</a>
+    
+    <div class="about-content">
+      <h1>About Mic Drop Daily</h1>
+      <div class="about-meta">Founded in 2024 | Your Daily Hip-Hop Source</div>
+      
+      <p>Welcome to Mic Drop Daily — your premier destination for hip-hop culture, raw talent, and the stories behind the beats. We're not just another music blog; we're the voice of the culture, celebrating the artists who shape today's sound and tomorrow's legacy.</p>
+
+      <div class="highlight">
+        "Hip-hop isn't just music — it's a movement, a culture, and a way of life. At Mic Drop Daily, we're here to honor that legacy and amplify the voices that matter." - Our Mission
+      </div>
+
+      <h2>Our Story</h2>
+      <p>Founded in 2024, Mic Drop Daily emerged from a simple belief: hip-hop deserves coverage that goes beyond the surface. We started as a small team of passionate music lovers, journalists, and culture enthusiasts who were tired of seeing the same mainstream narratives dominate hip-hop coverage.</p>
+
+      <p>Our founders — music industry veterans and lifelong hip-hop fans — recognized that the culture needed a platform that would celebrate both the legends who built the foundation and the new voices pushing the boundaries. From the streets of the Bronx to stages around the world, we cover the full spectrum of hip-hop culture.</p>
+
+      <h2>What We Do</h2>
+      <p>At Mic Drop Daily, we bring you comprehensive coverage of hip-hop culture through multiple lenses:</p>
+
+      <div class="values-list">
+        <h4>Our Coverage Includes:</h4>
+        <ul>
+          <li><strong>Artist Profiles:</strong> Deep dives into the lives and careers of both established legends and rising stars</li>
+          <li><strong>Music Reviews:</strong> Honest, insightful reviews of albums, singles, and mixtapes</li>
+          <li><strong>Cultural Commentary:</strong> Analysis of hip-hop's impact on society, politics, and culture</li>
+          <li><strong>Historical Features:</strong> Exploring the rich history and evolution of hip-hop</li>
+          <li><strong>Industry News:</strong> Breaking news and updates from the hip-hop world</li>
+          <li><strong>Underground Spotlight:</strong> Highlighting emerging artists and underground movements</li>
+        </ul>
+      </div>
+
+      <h2>Our Values</h2>
+      <p>Everything we do at Mic Drop Daily is guided by a set of core principles that reflect the values of hip-hop culture itself:</p>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <h4>Authenticity</h4>
+          <p>We believe in telling real stories from real people. No manufactured narratives, no fake drama — just authentic coverage of the culture we love.</p>
+        </div>
+
+        <div class="team-member">
+          <h4>Respect</h4>
+          <p>We honor the pioneers who built hip-hop and respect the artists who continue to push it forward. Every voice deserves to be heard.</p>
+        </div>
+
+        <div class="team-member">
+          <h4>Innovation</h4>
+          <p>Hip-hop has always been about pushing boundaries and breaking rules. We celebrate innovation in music, style, and storytelling.</p>
+        </div>
+
+        <div class="team-member">
+          <h4>Community</h4>
+          <p>Hip-hop is about community — bringing people together through shared experiences and common struggles. We're part of that community.</p>
+        </div>
+      </div>
+
+      <h2>Our Team</h2>
+      <p>Mic Drop Daily is powered by a diverse team of writers, editors, photographers, and culture enthusiasts who live and breathe hip-hop. Our team includes:</p>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <h4>Editorial Team</h4>
+          <p>Experienced journalists and music critics with decades of combined experience covering hip-hop culture and the music industry.</p>
+        </div>
+
+        <div class="team-member">
+          <h4>Cultural Contributors</h4>
+          <p>Artists, producers, and industry insiders who provide unique perspectives and insider knowledge about the hip-hop world.</p>
+        </div>
+
+        <div class="team-member">
+          <h4>Community Voices</h4>
+          <p>Fans, DJs, and culture enthusiasts who keep us connected to what's happening on the ground level in hip-hop communities worldwide.</p>
+        </div>
+      </div>
+
+      <h2>Our Commitment</h2>
+      <p>We're committed to providing you with the most comprehensive, insightful, and authentic coverage of hip-hop culture. Whether you're a longtime fan or just discovering the genre, we're here to guide you through the rich tapestry of hip-hop history and culture.</p>
+
+      <p>We believe that hip-hop is more than just music — it's a cultural force that has shaped art, fashion, language, and politics for over five decades. Our mission is to honor that legacy while celebrating the voices that continue to push the culture forward.</p>
+
+      <div class="highlight">
+        Join us on this journey through hip-hop culture. From the streets to the stage, from the underground to the mainstream, we're here to bring you the stories, the music, and the culture that makes hip-hop the most influential art form of our time.
+      </div>
+
+      <h2>Get in Touch</h2>
+      <p>Have a story idea? Want to submit music for review? Interested in collaborating with us? We'd love to hear from you. Reach out to us through our contact page or connect with us on social media.</p>
+
+      <p>Together, we're keeping hip-hop culture alive and thriving. Welcome to the Mic Drop Daily family.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-section about">
+      <h3>About Us</h3>
+      <p>We give you daily drops on the culture, the legends, and the next generation.</p>
+    </div>
+
+    <div class="footer-section links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="blog.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="archive.html">Archives</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section contact">
+      <h3>Contact Us</h3>
+      <p>Email: micdropdaily@email.com</p>
+      <p>Phone: 704 456 7890</p>
+      <p>Address: 2846 Poplar View Dr, Charlotte, NC 28210</p>
+    </div>
+
+    <div class="footer-section social">
+      <h3>Follow Us</h3>
+      <p>Stay connected on social media.</p>
+      <div class="social-icons">
+        <a href="#">Facebook</a> |
+        <a href="#">Instagram</a> |
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop">Back to Top ↑</button>
+
+  <script>
+    // Get the button
+    const backToTopBtn = document.getElementById('backToTop');
+
+    // Show button when user scrolls down 300px from the top
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    // Scroll to top when button is clicked
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+
+</body>
+</html>

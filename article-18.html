@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graffiti Art: The Visual Voice of Hip-Hop Culture - Mic Drop Daily</title>
+  <link href="blog.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    }
+
+    body {
+      background-color: #0e0e0e;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    header {
+      background-color: #0e0e0e;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 38px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      font-weight: 500;
+      transition: color 0.3s;
+      color: #ec0505;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .article-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: #ec0505;
+      font-weight: 500;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+    }
+
+    .back-link:hover {
+      transform: translateY(-3px);
+    }
+
+    .article {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .article img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .article-content {
+      padding: 40px;
+    }
+
+    .article-content h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #ec0505;
+      line-height: 1.2;
+    }
+
+    .article-meta {
+      color: #676262;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .article-content p {
+      color: #0e0e0e;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .article-content h2 {
+      color: #ec0505;
+      margin: 30px 0 15px 0;
+      font-size: 24px;
+    }
+
+    .article-content h3 {
+      color: #676262;
+      margin: 25px 0 10px 0;
+      font-size: 20px;
+    }
+
+    .highlight {
+      background-color: #ec0505;
+      color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      margin: 20px 0;
+      font-style: italic;
+    }
+
+    footer {
+      background-color: #0e0e0e;
+      color: #fff;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .footer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-section h3 {
+      color: #ec0505;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .footer-section p,
+    .footer-section ul li,
+    .footer-section a {
+      color: #fff;
+      line-height: 1.8;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .footer-section ul li:hover {
+      color: #ec0505;
+    }
+
+    .footer-section.contact p {
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .footer-section.contact p:hover {
+      color: #ec0505;
+    }
+
+    .footer-section a:hover {
+      color: #ec0505;
+      transition: color 0.3s;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      margin-right: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .article-content {
+        padding: 20px;
+      }
+      
+      .article-content h1 {
+        font-size: 28px;
+      }
+      
+      .article img {
+        height: 300px;
+      }
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      background: #ec0505;
+      color: #fff;
+      padding: 15px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.3s;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(236, 5, 5, 0.3);
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: #b80404;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(236, 5, 5, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mic Drop Daily</h1>
+    <nav>
+      <a href="blog.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="archive.html">Archives</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="article-container">
+    <a href="archive.html" class="back-link">← Back to Archives</a>
+    
+    <article class="article">
+      <img src="https://everwallpaper.com/cdn/shop/products/hiphop-graffiti-wallpaper-mural.jpg?v=1649923820" alt="Hip-hop graffiti art and street culture">
+      <p style="font-size: 12px; color: #666; margin-top: 10px; font-style: italic;">Image credit: Artsy - Hip-hop graffiti art history</p>
+      <div class="article-content">
+        <h1>Graffiti Art: The Visual Voice of Hip-Hop Culture</h1>
+        <div class="article-meta">Published on November 23, 2024 | By Mic Drop Daily</div>
+        
+        <p>Graffiti art stands as one of hip-hop's four foundational elements, serving as the visual voice of a culture that was often ignored by mainstream society. From the subway cars of 1970s New York to gallery walls worldwide, graffiti has evolved from underground rebellion to recognized art form while maintaining its cultural significance.</p>
+
+        <h2>The Birth of Modern Graffiti</h2>
+        <p>Modern graffiti emerged in Philadelphia and New York in the late 1960s and early 1970s, with artists like Taki 183 and Cornbread establishing the foundations of what would become a global movement. These early writers used the city as their canvas, claiming space in a world that often excluded them.</p>
+
+        <div class="highlight">
+          "Graffiti is not vandalism—it's the voice of the voiceless, the art of the invisible." - Lady Pink
+        </div>
+
+        <h2>Style and Technique Evolution</h2>
+        <p>Graffiti artists developed complex styles including wildstyle, bubble letters, and 3D effects, creating a visual language that was uniquely their own. The art form became increasingly sophisticated, with artists pushing the boundaries of what was possible with spray paint and markers.</p>
+
+        <h2>Cultural Significance</h2>
+        <p>Graffiti served as a form of cultural resistance, allowing artists to claim public space and express their identities in a society that often marginalized them. It became a way to document experiences, celebrate community, and challenge authority through visual expression.</p>
+
+        <h2>Global Spread</h2>
+        <p>Graffiti culture spread globally through hip-hop's international reach, with artists around the world adapting the style to reflect their local cultures and experiences. This global network created a shared visual language that transcended geographical boundaries.</p>
+
+        <h2>From Street to Gallery</h2>
+        <p>Graffiti artists like Jean-Michel Basquiat, Keith Haring, and Banksy have successfully transitioned from street art to gallery exhibitions, proving that the art form has legitimate artistic value. This transition has helped legitimize graffiti while maintaining its rebellious spirit.</p>
+
+        <h2>Legal Walls and Murals</h2>
+        <p>The rise of legal walls and commissioned murals has provided graffiti artists with legitimate spaces to create, while community mural programs have used graffiti techniques to beautify neighborhoods and tell local stories.</p>
+
+        <h2>Digital Evolution</h2>
+        <p>In the digital age, graffiti has evolved to include digital art, augmented reality, and social media platforms. Artists now use technology to create virtual graffiti and reach global audiences, while maintaining the core principles of the art form.</p>
+
+        <h2>Cultural Legacy</h2>
+        <p>Graffiti continues to influence visual culture, from fashion design to advertising, while maintaining its role as a voice for marginalized communities. Its impact extends far beyond hip-hop culture, influencing art, design, and social movements worldwide.</p>
+
+        <p>Graffiti art represents hip-hop culture's commitment to self-expression and cultural resistance, proving that art can be both beautiful and rebellious, both local and universal, both underground and mainstream.</p>
+      </div>
+    </article>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-section about">
+      <h3>About Us</h3>
+      <p>We give you daily drops on the culture, the legends, and the next generation.</p>
+    </div>
+
+    <div class="footer-section links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="blog.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="archive.html">Archives</a></li>
+        <li>Contact</li>
+      </ul>
+    </div>
+
+    <div class="footer-section contact">
+      <h3>Contact Us</h3>
+      <p>Email: micdropdaily@email.com</p>
+      <p>Phone: 704 456 7890</p>
+      <p>Address: 2846 Poplar View Dr, Charlotte, NC 28210</p>
+    </div>
+
+    <div class="footer-section social">
+      <h3>Follow Us</h3>
+      <p>Stay connected on social media.</p>
+      <div class="social-icons">
+        <a href="#">Facebook</a> |
+        <a href="#">Instagram</a> |
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop">Back to Top ↑</button>
+
+  <script>
+    // Get the button
+    const backToTopBtn = document.getElementById('backToTop');
+
+    // Show button when user scrolls down 300px from the top
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    // Scroll to top when button is clicked
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Birth of Hip-Hop: From the Bronx to the World - Mic Drop Daily</title>
+  <link href="blog.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    }
+
+    body {
+      background-color: #0e0e0e;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    header {
+      background-color: #0e0e0e;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 38px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      font-weight: 500;
+      transition: color 0.3s;
+      color: #ec0505;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .article-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: #ec0505;
+      font-weight: 500;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+    }
+
+    .back-link:hover {
+      transform: translateY(-3px);
+    }
+
+    .article {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .article img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .article-content {
+      padding: 40px;
+    }
+
+    .article-content h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #ec0505;
+      line-height: 1.2;
+    }
+
+    .article-meta {
+      color: #676262;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .article-content p {
+      color: #0e0e0e;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .article-content h2 {
+      color: #ec0505;
+      margin: 30px 0 15px 0;
+      font-size: 24px;
+    }
+
+    .article-content h3 {
+      color: #676262;
+      margin: 25px 0 10px 0;
+      font-size: 20px;
+    }
+
+    .highlight {
+      background-color: #ec0505;
+      color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      margin: 20px 0;
+      font-style: italic;
+    }
+
+    footer {
+      background-color: #0e0e0e;
+      color: #fff;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .footer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-section h3 {
+      color: #ec0505;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .footer-section p,
+    .footer-section ul li,
+    .footer-section a {
+      color: #fff;
+      line-height: 1.8;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .footer-section ul li:hover {
+      color: #ec0505;
+    }
+
+    .footer-section.contact p {
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .footer-section.contact p:hover {
+      color: #ec0505;
+    }
+
+    .footer-section a:hover {
+      color: #ec0505;
+      transition: color 0.3s;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      margin-right: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .article-content {
+        padding: 20px;
+      }
+      
+      .article-content h1 {
+        font-size: 28px;
+      }
+      
+      .article img {
+        height: 300px;
+      }
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      background: #ec0505;
+      color: #fff;
+      padding: 15px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.3s;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(236, 5, 5, 0.3);
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: #b80404;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(236, 5, 5, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mic Drop Daily</h1>
+    <nav>
+      <a href="blog.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="archive.html">Archives</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="article-container">
+    <a href="archive.html" class="back-link">← Back to Archives</a>
+    
+    <article class="article">
+      <img src="https://i0.wp.com/roseandblog.com/wp-content/uploads/2017/03/kool-herc-1979-party.jpg?fit=564%2C404&ssl=1" alt="Bronx street scene and hip-hop culture">
+      <p style="font-size: 12px; color: #666; margin-top: 10px; font-style: italic;">Image credit: Encyclopedia Britannica - 1970s Bronx street scene</p>
+      <div class="article-content">
+        <h1>The Birth of Hip-Hop: From the Bronx to the World</h1>
+        <div class="article-meta">Published on December 4, 2024 | By Mic Drop Daily</div>
+        
+        <p>In the summer of 1973, a cultural revolution began in the South Bronx that would change the world forever. What started as block parties and community gatherings evolved into a global movement that transcended music to become a way of life, a form of expression, and a voice for the voiceless.</p>
+
+        <h2>The Perfect Storm</h2>
+        <p>The South Bronx of the 1970s was a place of economic devastation, gang violence, and social neglect. Yet from these harsh conditions emerged something beautiful—a creative movement that would give voice to an entire generation and influence culture worldwide for decades to come.</p>
+
+        <div class="highlight">
+          "Hip-hop was born out of the struggle, but it became a celebration of life, creativity, and community." - Afrika Bambaataa
+        </div>
+
+        <h2>The Four Elements</h2>
+        <p>Hip-hop culture is built on four foundational elements: MCing (rapping), DJing (turntablism), B-boying (breakdancing), and Graffiti art. Each element represented a different form of expression, but together they created a complete cultural movement that emphasized creativity, competition, and community.</p>
+
+        <h2>The Pioneers</h2>
+        <p>DJ Kool Herc is often credited with hosting the first hip-hop party in 1973, where he developed the "break-beat" technique that became the foundation of hip-hop music. Alongside him, pioneers like Grandmaster Flash, Afrika Bambaataa, and Grand Wizard Theodore developed the techniques and sounds that defined the genre.</p>
+
+        <h2>From Local to Global</h2>
+        <p>What began as local block parties in the Bronx quickly spread throughout New York City and eventually across the United States. By the 1980s, hip-hop had reached every corner of the globe, adapting to local cultures while maintaining its core values of authenticity, creativity, and self-expression.</p>
+
+        <h2>Cultural Impact</h2>
+        <p>Hip-hop didn't just create new music—it influenced fashion, language, art, and social movements. It gave voice to marginalized communities and provided a platform for storytelling that resonated with people from all walks of life.</p>
+
+        <h2>The Legacy Continues</h2>
+        <p>Today, hip-hop is the most popular music genre in the world, but its impact goes far beyond charts and sales. It continues to serve as a voice for social change, a platform for artistic expression, and a bridge between cultures and generations.</p>
+
+        <p>The birth of hip-hop in the South Bronx represents one of the most significant cultural movements of the 20th century, proving that from the most challenging circumstances can emerge the most beautiful forms of human expression.</p>
+      </div>
+    </article>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-section about">
+      <h3>About Us</h3>
+      <p>We give you daily drops on the culture, the legends, and the next generation.</p>
+    </div>
+
+    <div class="footer-section links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="blog.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="archive.html">Archives</a></li>
+        <li>Contact</li>
+      </ul>
+    </div>
+
+    <div class="footer-section contact">
+      <h3>Contact Us</h3>
+      <p>Email: micdropdaily@email.com</p>
+      <p>Phone: 704 456 7890</p>
+      <p>Address: 2846 Poplar View Dr, Charlotte, NC 28210</p>
+    </div>
+
+    <div class="footer-section social">
+      <h3>Follow Us</h3>
+      <p>Stay connected on social media.</p>
+      <div class="social-icons">
+        <a href="#">Facebook</a> |
+        <a href="#">Instagram</a> |
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop">Back to Top ↑</button>
+
+  <script>
+    // Get the button
+    const backToTopBtn = document.getElementById('backToTop');
+
+    // Show button when user scrolls down 300px from the top
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    // Scroll to top when button is clicked
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+
+</body>
+</html>

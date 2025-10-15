@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Female MCs Breaking Barriers in Hip-Hop - Mic Drop Daily</title>
+  <link href="blog.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    }
+
+    body {
+      background-color: #0e0e0e;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    header {
+      background-color: #0e0e0e;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 38px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      font-weight: 500;
+      transition: color 0.3s;
+      color: #ec0505;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .article-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: #ec0505;
+      font-weight: 500;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+    }
+
+    .back-link:hover {
+      transform: translateY(-3px);
+    }
+
+    .article {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .article img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .article-content {
+      padding: 40px;
+    }
+
+    .article-content h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #ec0505;
+      line-height: 1.2;
+    }
+
+    .article-meta {
+      color: #676262;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .article-content p {
+      color: #0e0e0e;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .article-content h2 {
+      color: #ec0505;
+      margin: 30px 0 15px 0;
+      font-size: 24px;
+    }
+
+    .article-content h3 {
+      color: #676262;
+      margin: 25px 0 10px 0;
+      font-size: 20px;
+    }
+
+    .highlight {
+      background-color: #ec0505;
+      color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      margin: 20px 0;
+      font-style: italic;
+    }
+
+    footer {
+      background-color: #0e0e0e;
+      color: #fff;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .footer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-section h3 {
+      color: #ec0505;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .footer-section p,
+    .footer-section ul li,
+    .footer-section a {
+      color: #fff;
+      line-height: 1.8;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .footer-section ul li:hover {
+      color: #ec0505;
+    }
+
+    .footer-section.contact p {
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .footer-section.contact p:hover {
+      color: #ec0505;
+    }
+
+    .footer-section a:hover {
+      color: #ec0505;
+      transition: color 0.3s;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      margin-right: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .article-content {
+        padding: 20px;
+      }
+      
+      .article-content h1 {
+        font-size: 28px;
+      }
+      
+      .article img {
+        height: 300px;
+      }
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      background: #ec0505;
+      color: #fff;
+      padding: 15px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.3s;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(236, 5, 5, 0.3);
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: #b80404;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(236, 5, 5, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mic Drop Daily</h1>
+    <nav>
+      <a href="blog.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="archive.html">Archives</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="article-container">
+    <a href="archive.html" class="back-link">← Back to Archives</a>
+    
+    <article class="article">
+      <img src="https://images.squarespace-cdn.com/content/v1/5aef35003e2d0905837f7d46/1565285978740-TKW3G2PQ0ZA601PDT608/tumblr_om79rdSUhf1qipgcx_og_500.jpg" alt="Female MCs in Hip-Hop">
+      <div class="article-content">
+        <h1>Female MCs Breaking Barriers in Hip-Hop</h1>
+        <div class="article-meta">Published on December 7, 2024 | By Mic Drop Daily</div>
+        
+        <p>Women have been instrumental in hip-hop since its inception, yet their contributions have often been overlooked or marginalized. Today's generation of female MCs is changing the narrative, proving that women can dominate in a genre traditionally dominated by men.</p>
+
+        <h2>The Pioneers</h2>
+        <p>Early female rappers like Roxanne Shanté, MC Lyte, and Queen Latifah laid the foundation for women in hip-hop. These pioneers proved that women could hold their own in the male-dominated genre, addressing issues of empowerment, sexuality, and social justice.</p>
+
+        <div class="highlight">
+          "I'm not just a female rapper—I'm an artist who happens to be a woman. My gender doesn't define my talent." - Queen Latifah
+        </div>
+
+        <h2>The 90s Renaissance</h2>
+        <p>The 90s saw the rise of iconic female rappers like Lil' Kim, Foxy Brown, and Missy Elliott. These artists brought different styles and perspectives, from Lil' Kim's provocative lyrics to Missy Elliott's innovative production and visual aesthetics.</p>
+
+        <h2>Modern Era Dominance</h2>
+        <p>Today's female MCs like Nicki Minaj, Cardi B, Megan Thee Stallion, and Doja Cat are not just competing with male rappers—they're often outperforming them. These artists have brought fresh perspectives, diverse styles, and unprecedented commercial success.</p>
+
+        <h2>Changing the Game</h2>
+        <p>Modern female rappers are challenging stereotypes and pushing boundaries in ways that previous generations couldn't. They're addressing topics like mental health, body positivity, and financial independence while maintaining their artistic integrity.</p>
+
+        <h2>The Future is Female</h2>
+        <p>As the industry continues to evolve, female MCs are proving that hip-hop has room for everyone. Their success opens doors for the next generation of women in hip-hop, ensuring that the genre continues to grow and diversify.</p>
+
+        <p>The rise of female MCs represents one of hip-hop's most important cultural shifts, proving that talent knows no gender and that the future of hip-hop is more inclusive than ever.</p>
+      </div>
+    </article>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-section about">
+      <h3>About Us</h3>
+      <p>We give you daily drops on the culture, the legends, and the next generation.</p>
+    </div>
+
+    <div class="footer-section links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="blog.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="archive.html">Archives</a></li>
+        <li>Contact</li>
+      </ul>
+    </div>
+
+    <div class="footer-section contact">
+      <h3>Contact Us</h3>
+      <p>Email: micdropdaily@email.com</p>
+      <p>Phone: 704 456 7890</p>
+      <p>Address: 2846 Poplar View Dr, Charlotte, NC 28210</p>
+    </div>
+
+    <div class="footer-section social">
+      <h3>Follow Us</h3>
+      <p>Stay connected on social media.</p>
+      <div class="social-icons">
+        <a href="#">Facebook</a> |
+        <a href="#">Instagram</a> |
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop">Back to Top ↑</button>
+
+  <script>
+    // Get the button
+    const backToTopBtn = document.getElementById('backToTop');
+
+    // Show button when user scrolls down 300px from the top
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    // Scroll to top when button is clicked
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+
+</body>
+</html>

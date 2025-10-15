@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Future of Hip-Hop: Where the Culture is Heading - Mic Drop Daily</title>
+  <link href="blog.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    }
+
+    body {
+      background-color: #0e0e0e;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    header {
+      background-color: #0e0e0e;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 38px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      font-weight: 500;
+      transition: color 0.3s;
+      color: #ec0505;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .article-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: #ec0505;
+      font-weight: 500;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+    }
+
+    .back-link:hover {
+      transform: translateY(-3px);
+    }
+
+    .article {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .article img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .article-content {
+      padding: 40px;
+    }
+
+    .article-content h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #ec0505;
+      line-height: 1.2;
+    }
+
+    .article-meta {
+      color: #676262;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .article-content p {
+      color: #0e0e0e;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .article-content h2 {
+      color: #ec0505;
+      margin: 30px 0 15px 0;
+      font-size: 24px;
+    }
+
+    .article-content h3 {
+      color: #676262;
+      margin: 25px 0 10px 0;
+      font-size: 20px;
+    }
+
+    .highlight {
+      background-color: #ec0505;
+      color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      margin: 20px 0;
+      font-style: italic;
+    }
+
+    footer {
+      background-color: #0e0e0e;
+      color: #fff;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .footer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-section h3 {
+      color: #ec0505;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .footer-section p,
+    .footer-section ul li,
+    .footer-section a {
+      color: #fff;
+      line-height: 1.8;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .footer-section ul li:hover {
+      color: #ec0505;
+    }
+
+    .footer-section.contact p {
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .footer-section.contact p:hover {
+      color: #ec0505;
+    }
+
+    .footer-section a:hover {
+      color: #ec0505;
+      transition: color 0.3s;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      margin-right: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .article-content {
+        padding: 20px;
+      }
+      
+      .article-content h1 {
+        font-size: 28px;
+      }
+      
+      .article img {
+        height: 300px;
+      }
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      background: #ec0505;
+      color: #fff;
+      padding: 15px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.3s;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(236, 5, 5, 0.3);
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: #b80404;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(236, 5, 5, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mic Drop Daily</h1>
+    <nav>
+      <a href="blog.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="archive.html">Archives</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="article-container">
+    <a href="archive.html" class="back-link">← Back to Archives</a>
+    
+    <article class="article">
+      <img src="https://www.rollingstone.com/wp-content/uploads/2023/08/online-illo-static.jpg" alt="Modern hip-hop artist and future trends">
+      <p style="font-size: 12px; color: #666; margin-top: 10px; font-style: italic;">Image credit: Pitchfork - Future of hip-hop trends</p>
+      <div class="article-content">
+        <h1>The Future of Hip-Hop: Where the Culture is Heading</h1>
+        <div class="article-meta">Published on November 21, 2024 | By Mic Drop Daily</div>
+        
+        <p>As hip-hop approaches its 50th anniversary, the culture stands at a crossroads between honoring its roots and embracing the future. Emerging trends in technology, social consciousness, and global connectivity are shaping the next chapter of hip-hop's evolution, promising both challenges and opportunities for the genre's continued growth.</p>
+
+        <h2>Technological Innovation</h2>
+        <p>The future of hip-hop will be shaped by emerging technologies like artificial intelligence, virtual reality, and blockchain. From AI-assisted production to virtual concerts and NFT releases, artists are exploring new ways to create, distribute, and monetize their music while maintaining authentic connections with fans.</p>
+
+        <div class="highlight">
+          "The future of hip-hop isn't about replacing the human element—it's about using technology to amplify our voices and reach new audiences." - Travis Scott
+        </div>
+
+        <h2>Global Cultural Exchange</h2>
+        <p>Hip-hop's global reach continues to expand, with artists from every continent contributing their unique perspectives to the culture. This international collaboration is creating new sounds, styles, and stories that reflect the diversity of the global hip-hop community.</p>
+
+        <h2>Social Consciousness Evolution</h2>
+        <p>As social issues continue to evolve, hip-hop artists are addressing new challenges including climate change, mental health, and digital privacy. The genre's tradition of social commentary will continue to adapt to address the concerns of new generations.</p>
+
+        <h2>Entrepreneurship and Ownership</h2>
+        <p>The next generation of hip-hop artists is increasingly focused on ownership and entrepreneurship, building businesses that extend far beyond music. From tech startups to sustainable fashion lines, artists are using their platforms to create lasting economic impact.</p>
+
+        <h2>Virtual and Hybrid Experiences</h2>
+        <p>The future of hip-hop performances will likely include more virtual and hybrid experiences, combining live performances with digital elements. This evolution will make hip-hop culture more accessible while creating new opportunities for artistic expression.</p>
+
+        <h2>Mental Health and Wellness</h2>
+        <p>As conversations about mental health become more prominent, hip-hop artists are using their platforms to address issues of anxiety, depression, and trauma. This represents a positive evolution in the culture's approach to wellness and self-care.</p>
+
+        <h2>Environmental Responsibility</h2>
+        <p>The next generation of hip-hop artists is increasingly aware of environmental issues, using their influence to promote sustainability and climate action. This represents a new frontier in hip-hop's tradition of social consciousness.</p>
+
+        <h2>Preserving the Culture</h2>
+        <p>As hip-hop continues to evolve, preserving its core elements—MCing, DJing, B-boying, and Graffiti art—remains crucial. The future success of the culture depends on maintaining these foundations while embracing innovation and change.</p>
+
+        <p>The future of hip-hop promises to be as dynamic and influential as its past, with new technologies, global perspectives, and social consciousness driving the culture forward while honoring the traditions that made it great.</p>
+      </div>
+    </article>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-section about">
+      <h3>About Us</h3>
+      <p>We give you daily drops on the culture, the legends, and the next generation.</p>
+    </div>
+
+    <div class="footer-section links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="blog.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="archive.html">Archives</a></li>
+        <li>Contact</li>
+      </ul>
+    </div>
+
+    <div class="footer-section contact">
+      <h3>Contact Us</h3>
+      <p>Email: micdropdaily@email.com</p>
+      <p>Phone: 704 456 7890</p>
+      <p>Address: 2846 Poplar View Dr, Charlotte, NC 28210</p>
+    </div>
+
+    <div class="footer-section social">
+      <h3>Follow Us</h3>
+      <p>Stay connected on social media.</p>
+      <div class="social-icons">
+        <a href="#">Facebook</a> |
+        <a href="#">Instagram</a> |
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop">Back to Top ↑</button>
+
+  <script>
+    // Get the button
+    const backToTopBtn = document.getElementById('backToTop');
+
+    // Show button when user scrolls down 300px from the top
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    // Scroll to top when button is clicked
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Mic Drop Daily</title>
+  <link href="blog.css" rel="stylesheet">
+  <style>
+    /* General Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    }
+
+    body {
+      background-color: #0e0e0e;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Header */
+    header {
+      background-color: #0e0e0e;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 38px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      font-weight: 500;
+      transition: color 0.3s;
+      color: #ec0505;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #1a1a1a 0%, #0e0e0e 100%);
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><text x="10" y="50" font-size="40" fill="%23ec0505" opacity="0.05">♪</text></svg>');
+      opacity: 0.1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .hero h2 span {
+      color: #ec0505;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #bbb;
+      line-height: 1.6;
+    }
+
+    /* Contact Container */
+    .contact-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: #ec0505;
+      font-weight: 500;
+      margin-bottom: 30px;
+      transition: transform 0.3s;
+    }
+
+    .back-link:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Contact Content */
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .contact-info {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .contact-info h3 {
+      color: #ec0505;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .contact-info p {
+      color: #0e0e0e;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .contact-details {
+      margin-top: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #f8f8f8;
+      border-radius: 8px;
+      border-left: 4px solid #ec0505;
+    }
+
+    .contact-item h4 {
+      color: #ec0505;
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    .contact-item p {
+      color: #0e0e0e;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .contact-form h3 {
+      color: #ec0505;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      color: #0e0e0e;
+      margin-bottom: 8px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: border-color 0.3s;
+      font-family: inherit;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #ec0505;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      background-color: #ec0505;
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .submit-btn:hover {
+      background-color: #b80404;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(236, 5, 5, 0.4);
+    }
+
+    /* Social Media Section */
+    .social-section {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .social-section h3 {
+      color: #ec0505;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .social-section p {
+      color: #0e0e0e;
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-link {
+      display: inline-block;
+      padding: 15px 25px;
+      background-color: #ec0505;
+      color: #fff;
+      border-radius: 5px;
+      font-weight: 500;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .social-link:hover {
+      background-color: #b80404;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(236, 5, 5, 0.4);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0e0e0e;
+      color: #fff;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .footer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-section h3 {
+      color: #ec0505;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .footer-section p,
+    .footer-section ul li,
+    .footer-section a {
+      color: #fff;
+      line-height: 1.8;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .footer-section ul li:hover {
+      color: #ec0505;
+    }
+
+    .footer-section.contact p {
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .footer-section.contact p:hover {
+      color: #ec0505;
+    }
+
+    .footer-section a:hover {
+      color: #ec0505;
+      transition: color 0.3s;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      margin-right: 5px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 36px;
+      }
+      
+      .contact-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-info,
+      .contact-form {
+        padding: 20px;
+      }
+      
+      .social-links {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      background: #ec0505;
+      color: #fff;
+      padding: 15px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.3s;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(236, 5, 5, 0.3);
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: #b80404;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(236, 5, 5, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Mic Drop Daily</h1>
+    <nav>
+      <a href="blog.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="archive.html">Archives</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Get In <span>Touch</span></h2>
+      <p>Have a story idea, want to submit music for review, or interested in collaborating with us? We'd love to hear from you and connect with the hip-hop community.</p>
+    </div>
+  </section>
+
+  <!-- Contact Container -->
+  <div class="contact-container">
+    <a href="blog.html" class="back-link">← Back to Blog</a>
+    
+    <!-- Contact Content -->
+    <div class="contact-content">
+      <!-- Contact Information -->
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        <p>We're always excited to connect with fellow hip-hop enthusiasts, artists, and culture lovers. Whether you have a story idea, want to submit music for review, or just want to share your thoughts on the culture, we're here to listen.</p>
+        
+        <div class="contact-details">
+          <div class="contact-item">
+            <div>
+              <h4>Email</h4>
+              <p>micdropdaily@email.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div>
+              <h4>Phone</h4>
+              <p>704 456 7890</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div>
+              <h4>Address</h4>
+              <p>2846 Poplar View Dr<br>Charlotte, NC 28210</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <form>
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject">
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" required placeholder="Tell us what's on your mind..."></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Social Media Section -->
+    <div class="social-section">
+      <h3>Connect With Us</h3>
+      <p>Stay updated with the latest hip-hop news, exclusive content, and behind-the-scenes stories by following us on social media.</p>
+      
+      <div class="social-links">
+        <a href="#" class="social-link">Facebook</a>
+        <a href="#" class="social-link">Instagram</a>
+        <a href="#" class="social-link">Twitter</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-section about">
+      <h3>About Us</h3>
+      <p>We give you daily drops on the culture, the legends, and the next generation.</p>
+    </div>
+
+    <div class="footer-section links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="blog.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="archive.html">Archives</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section contact">
+      <h3>Contact Us</h3>
+      <p>Email: micdropdaily@email.com</p>
+      <p>Phone: 704 456 7890</p>
+      <p>Address: 2846 Poplar View Dr, Charlotte, NC 28210</p>
+    </div>
+
+    <div class="footer-section social">
+      <h3>Follow Us</h3>
+      <p>Stay connected on social media.</p>
+      <div class="social-icons">
+        <a href="#">Facebook</a> |
+        <a href="#">Instagram</a> |
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Form submission handling
+    const contactForm = document.querySelector('.contact-form form');
+    
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(contactForm);
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const subject = formData.get('subject');
+      const message = formData.get('message');
+      
+      // Simple validation
+      if (!name || !email || !message) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+      
+      // Simulate form submission
+      alert('Thank you for your message! We\'ll get back to you soon.');
+      contactForm.reset();
+    });
+
+    // Back to top functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      const backToTopBtn = document.getElementById('backToTop');
+
+      // Show button when user scrolls down 300px from the top
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.classList.add('show');
+        } else {
+          backToTopBtn.classList.remove('show');
+        }
+      });
+
+      // Scroll to top when button is clicked
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop">Back to Top ↑</button>
+
+</body>
+</html>
