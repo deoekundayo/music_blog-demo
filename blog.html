@@ -415,7 +415,7 @@
       <div class="post" id="first-post">
         <img src="evo-of-hiphop.png" alt="hip-hop evolution">
         <div class="post-content">
-          <h3><a href="#first-post" class="article-title-link">The Evolution of Hip-Hop: From the Streets to the Global Stage</a></h3>
+          <h3><a href="first-post.html" class="article-title-link">The Evolution of Hip-Hop: From the Streets to the Global Stage</a></h3>
           <p>Hip-hop is more than just a genre — it's a cultural movement that has shaped art, fashion, language, and politics for over five decades. What began as an underground expression in the Bronx has grown into a global force influencing every corner of popular culture. Let's take a journey through the decades to see how hip-hop has evolved and transformed along the way.</p>
           <a href="first-post.html">Read More →</a>
           <div class="article-nav">
@@ -571,19 +571,24 @@
       });
     });
 
-    // Smooth scroll for article title links
+    // Smooth scroll for article title links (only for internal anchors)
     const articleTitleLinks = document.querySelectorAll('.article-title-link');
     articleTitleLinks.forEach(link => {
       link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+        const href = link.getAttribute('href');
+        // Only prevent default for internal anchor links (starting with #)
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          const targetId = href.substring(1);
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
         }
+        // For external links (like first-post.html), let the browser navigate normally
       });
     });
 
