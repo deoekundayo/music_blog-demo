@@ -204,7 +204,19 @@ To add new article categories:
 2. Add `data-category` attributes to new articles
 3. Update JavaScript filtering logic if needed
 
-## Browser Compatibility
+## 🛠️ Technologies & Frameworks
+
+### Core Technologies
+- **HTML5**: Semantic markup and structure
+- **CSS3**: Custom styling with modern CSS features (Grid, Flexbox, animations)
+- **Vanilla JavaScript (ES6+)**: All functionality implemented without frameworks
+
+### Design Approach
+- **No Framework Dependencies**: Built entirely with vanilla web technologies
+- **Custom CSS**: All styling is custom-written for optimal performance
+- **Lightweight**: Minimal dependencies for fast loading times
+
+### Browser Compatibility
 
 - Chrome (latest)
 - Firefox (latest)
